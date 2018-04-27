@@ -11,3 +11,30 @@ DIRS += [
     'shell',
     'smile',
 ]
+
+XPIDL_SOURCES += [
+    'nsISessionStartup.idl',
+    'nsISessionStore.idl',
+    'nsISidebar.idl',
+    'nsISuiteDownloadManagerUI.idl',
+    'nsISuiteGlue.idl',
+]
+
+XPIDL_MODULE = 'navigatorcompsbase'
+
+EXTRA_COMPONENTS += [
+    'NavigatorComponents.manifest',
+    'nsAbout.js',
+    'nsBrowserContentHandler.js',
+    'nsDownloadsStartup.js',
+    'nsGopherProtocolStubHandler.js',
+    'nsSessionStartup.js',
+    'nsSidebar.js',
+    'nsSuiteDownloadManagerUI.js',
+    'nsSuiteGlue.js',
+    'nsTypeAheadFind.js',
+]
+
+EXTRA_PP_COMPONENTS += [
+    'nsSessionStore.js',
+]
