@@ -11,7 +11,6 @@ XPIDL_MODULE = 'suitemigration'
 
 SOURCES += [
     'nsNetscapeProfileMigratorBase.cpp',
-    'nsSuiteDirectoryProvider.cpp',
     'nsSuiteProfileMigratorUtils.cpp',
     'nsThunderbirdProfileMigrator.cpp',
 ]
@@ -22,11 +21,6 @@ EXTRA_COMPONENTS += [
 
 EXTRA_PP_COMPONENTS += [
     'SuiteProfileMigrator.js',
-]
-
-USE_LIBS += [
-    'nspr',
-    'xul',
 ]
 
 FINAL_LIBRARY = 'navigator'
