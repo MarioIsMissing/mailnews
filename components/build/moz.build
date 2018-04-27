@@ -11,9 +11,9 @@ XPCOMBinaryComponent('navigator')
 
 LOCAL_INCLUDES += [
     '../../feeds/src',
-    '../../shell/src',
     '../dirprovider',
     '../migration',
+    '../shell',
 ]
 
 USE_LIBS += [
