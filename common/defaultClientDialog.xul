@@ -26,9 +26,9 @@
   <description>&defaultClient.intro;</description>
   <listbox rows="4" id="defaultList">
     <listitem value="BROWSER" type="checkbox" label="&browser.label;"/>
-    <listitem value="MAIL" type="checkbox" label="&email.label;"/>
-    <listitem value="NEWS" type="checkbox" label="&newsgroups.label;"/>
-    <listitem value="RSS" type="checkbox" label="&feeds.label;"/>
+    <listitem value="MAIL" type="checkbox" label="&email.label;" disabled="true"/>
+    <listitem value="NEWS" type="checkbox" label="&newsgroups.label;" disabled="true"/>
+    <listitem value="RSS" type="checkbox" label="&feeds.label;" disabled="true"/>
   </listbox>
 
   <separator class="thin"/>
