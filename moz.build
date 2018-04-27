@@ -7,6 +7,7 @@ CONFIGURE_SUBST_FILES += ['installer/Makefile']
 
 DIRS += [
     'common',
+    'components',
     'content',
     'feeds/public',
     'feeds/src',
@@ -15,7 +16,6 @@ DIRS += [
     'locales',
     'modules',
     'themes',
-    'profile',
     'smile',
     'security',
     'shell/public',
@@ -27,7 +27,6 @@ if CONFIG['MAKENSISU']:
 
 # app is always last as it packages up the built files on mac.
 DIRS += [
-    'build/xpcom',
-    'build/xre',
+    'app',
 ]
 
