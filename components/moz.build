@@ -6,6 +6,7 @@
 DIRS += [
     'build',
     'dirprovider',
+    'feeds',
     'migration',
     'shell',
 ]

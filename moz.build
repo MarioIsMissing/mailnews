@@ -9,8 +9,6 @@ DIRS += [
     'common',
     'components',
     'content',
-    'feeds/public',
-    'feeds/src',
     'defaults',
     'fonts',
     'locales',
