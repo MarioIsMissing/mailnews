@@ -9,4 +9,5 @@ DIRS += [
     'feeds',
     'migration',
     'shell',
+    'smile',
 ]
