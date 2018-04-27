@@ -309,16 +309,8 @@ var PlacesOrganizer = {
    * Show the migration wizard for importing from a file.
    */
   importBookmarks: function PO_import() {
-    // XXX: ifdef it to be non-modal (non-"sheet") on mac (see bug 259039)
-    var features = "modal,centerscreen,chrome,resizable=no";
-
-    // The migrator window will set this to true when it closes, if the user
-    // chose to migrate from a specific file.
-    window.fromFile = false;
-    openDialog("chrome://communicator/content/migration/migration.xul",
-               "migration", features, "bookmarks");
-    if (window.fromFile)
-      this.importFromFile();
+    // XXXTobin: Resolve this
+    this.importFromFile();
   },
 
   /**
