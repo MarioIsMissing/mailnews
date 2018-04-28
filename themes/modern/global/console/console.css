@@ -90,6 +90,14 @@
 
 /* ::::: toolbars ::::: */
 
+#ToolbarMode {
+  background-image: url("chrome://communicator/skin/toolbar/prtb-bg-noline.gif");
+}
+
+#ToolbarEval {
+  background: url("chrome://global/skin/toolbar/tb-mid.gif") #C7D0D9 repeat-x top;
+}
+
 #TextfieldEval {
   margin: 2px !important;
 }
