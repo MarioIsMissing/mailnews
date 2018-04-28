@@ -9,13 +9,12 @@ DIRS += [
     'downloads',
     'feeds',
     'migration',
+    'sessionstore',
     'shell',
     'smile',
 ]
 
 XPIDL_SOURCES += [
-    'nsISessionStartup.idl',
-    'nsISessionStore.idl',
     'nsISidebar.idl',
     'nsISuiteGlue.idl',
 ]
@@ -27,12 +26,7 @@ EXTRA_COMPONENTS += [
     'nsAbout.js',
     'nsBrowserContentHandler.js',
     'nsGopherProtocolStubHandler.js',
-    'nsSessionStartup.js',
     'nsSidebar.js',
     'nsSuiteGlue.js',
     'nsTypeAheadFind.js',
-]
-
-EXTRA_PP_COMPONENTS += [
-    'nsSessionStore.js',
 ]

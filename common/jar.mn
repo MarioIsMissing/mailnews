@@ -14,8 +14,6 @@ comm.jar:
    content/communicator/aboutPrivateBrowsing.css
    content/communicator/aboutPrivateBrowsing.js
    content/communicator/aboutPrivateBrowsing.xul
-   content/communicator/aboutSessionRestore.js
-   content/communicator/aboutSessionRestore.xhtml
    content/communicator/askViewZoom.xul
    content/communicator/askViewZoom.js
    content/communicator/blockedSite.js
