@@ -12,20 +12,20 @@ JS_PREFERENCE_PP_FILES += [
 ]
 
 FINAL_TARGET_FILES.defaults.profile += [
-  'profile/bookmarks.html',
-  'profile/mimeTypes.rdf',
-  'profile/panels.rdf',
+    'profile/bookmarks.html',
+    'profile/mimeTypes.rdf',
+    'profile/panels.rdf',
 ]
 
 FINAL_TARGET_FILES.defaults.profile.chrome += [
-  'profile/chrome/userChrome-example.css',
-  'profile/chrome/userContent-example.css',
+    'profile/chrome/userChrome-example.css',
+    'profile/chrome/userContent-example.css',
 ]
 
 FINAL_TARGET_FILES.searchplugins += [
-  'searchplugins/duckduckgo-palemoon.xml',
-  'searchplugins/ecosia.xml',
-  'searchplugins/navigator-cross-reference.xml',
-  'searchplugins/uxp-cross-reference.xml',
-  'searchplugins/wikipedia.xml',
+    'searchplugins/duckduckgo-palemoon.xml',
+    'searchplugins/ecosia.xml',
+    'searchplugins/navigator-cross-reference.xml',
+    'searchplugins/uxp-cross-reference.xml',
+    'searchplugins/wikipedia.xml',
 ]
