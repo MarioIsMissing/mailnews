@@ -1,0 +1,51 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+comm.jar:
+% content navigator %content/navigator/
+% content navigator-platform %content/navigator-platform/ platform
+% content navigator-region %content/navigator-region/
+   content/navigator/browser.js                                     (content/browser.js)
+   content/navigator/content.js                                     (content/content.js)
+   content/navigator/fullScreen.js                                  (content/fullScreen.js)
+   content/navigator/hiddenWindow.xul                               (content/hiddenWindow.xul)
+   content/navigator/linkToolbarHandler.js                          (content/linkToolbarHandler.js)
+   content/navigator/linkToolbarItem.js                             (content/linkToolbarItem.js)  
+   content/navigator/linkToolbarOverlay.js                          (content/linkToolbarOverlay.js)
+   content/navigator/linkToolbarOverlay.xul                         (content/linkToolbarOverlay.xul)
+   content/navigator/metadata.js                                    (content/metadata.js)
+   content/navigator/metadata.xul                                   (content/metadata.xul)
+   content/navigator/navigator.css                                  (content/navigator.css)
+   content/navigator/navigator.js                                   (content/navigator.js)
+   content/navigator/navigator.xul                                  (content/navigator.xul)
+   content/navigator/navigatorDD.js                                 (content/navigatorDD.js)
+   content/navigator/navigatorOverlay.xul                           (content/navigatorOverlay.xul)
+   content/navigator/nsBrowserContentListener.js                    (content/nsBrowserContentListener.js)
+   content/navigator/nsBrowserStatusHandler.js                      (content/nsBrowserStatusHandler.js)
+   content/navigator/sessionHistoryUI.js                            (content/sessionHistoryUI.js)
+   content/navigator/safeBrowsingOverlay.js                         (content/safeBrowsingOverlay.js)
+   content/navigator/safeBrowsingOverlay.xul                        (content/safeBrowsingOverlay.xul)
+   content/navigator/tabbrowser.xml                                 (content/tabbrowser.xml)
+   content/navigator/urlbarBindings.xml                             (content/urlbarBindings.xml)
+   content/navigator/webDeveloperOverlay.js                         (content/webDeveloperOverlay.js)
+   content/navigator/webDeveloperOverlay.xul                        (content/webDeveloperOverlay.xul)
+#ifdef XP_MACOSX
+   content/navigator/platformNavigationBindings.xul                 (content/mac/platformNavigationBindings.xul)
+   content/navigator/platformMailOverlay.xul                        (content/mac/platformMailOverlay.xul)
+#else
+#ifdef XP_WIN32
+   content/navigator/platformNavigationBindings.xul                 (content/win/platformNavigationBindings.xul)
+   content/navigator/platformMailOverlay.xul                        (content/win/platformMailOverlay.xul)
+#else
+   content/navigator/platformNavigationBindings.xul                 (content/unix/platformNavigationBindings.xul)
+   content/navigator/platformMailOverlay.xul                        (content/unix/platformMailOverlay.xul)
+#endif
+#endif
+   content/navigator/pageinfo/feeds.js                              (content/pageinfo/feeds.js)
+   content/navigator/pageinfo/feeds.xml                             (content/pageinfo/feeds.xml)
+   content/navigator/pageinfo/pageInfo.css                          (content/pageinfo/pageInfo.css)
+   content/navigator/pageinfo/pageInfo.js                           (content/pageinfo/pageInfo.js)
+   content/navigator/pageinfo/pageInfo.xul                          (content/pageinfo/pageInfo.xul)
+   content/navigator/pageinfo/permissions.js                        (content/pageinfo/permissions.js)
+   content/navigator/pageinfo/security.js                           (content/pageinfo/security.js)
