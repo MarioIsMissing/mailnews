@@ -19,6 +19,9 @@
 
 // Extension preferences
 
+// Show the Discover Pane
+pref("extensions.getAddons.showPane", false);
+
 // Enables some extra Extension System Logging (can reduce performance)
 pref("extensions.logging.enabled", false);
 
