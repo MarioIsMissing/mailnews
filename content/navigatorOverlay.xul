@@ -5,7 +5,6 @@
 
 <?xul-overlay href="chrome://communicator/content/utilityOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/viewZoomOverlay.xul"?>
-<?xul-overlay href="chrome://communicator/content/viewApplyThemeOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/tasksOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/bookmarks/placesOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/charsetOverlay.xul"?>
@@ -365,9 +364,6 @@
                   accesskey="&pageInfoCmd.accesskey;"
                   key="key_viewInfo"
                   command="View:PageInfo"/>
-        <menuseparator />
-        <!-- overlayed from viewApplyThemeOverlay.xul -->
-        <menu id="menu_viewApplyTheme"/>
       </menupopup>
     </menu>
 
