@@ -4,19 +4,19 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 XPIDL_SOURCES += [
-    'nsISessionStartup.idl',
-    'nsISessionStore.idl',
+    'public/nsISessionStartup.idl',
+    'public/nsISessionStore.idl',
 ]
 
 XPIDL_MODULE = 'navigatorcompsbase'
 
 EXTRA_COMPONENTS += [
-    'nsSessionStartup.js',
     'SessionStore.manifest',
+    'src/nsSessionStartup.js',
 ]
 
 EXTRA_PP_COMPONENTS += [
-    'nsSessionStore.js',
+    'src/nsSessionStore.js',
 ]
 
 JAR_MANIFESTS += ['jar.mn']

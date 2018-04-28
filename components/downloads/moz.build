@@ -4,15 +4,15 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 XPIDL_SOURCES += [
-    'nsISuiteDownloadManagerUI.idl',
+    'public/nsISuiteDownloadManagerUI.idl',
 ]
 
 XPIDL_MODULE = 'navigatorcompsbase'
 
 EXTRA_COMPONENTS += [
-    'nsDownloadsStartup.js',
     'nsSuiteDownloadManager.manifest',
-    'nsSuiteDownloadManagerUI.js',
+    'src/nsDownloadsStartup.js',
+    'src/nsSuiteDownloadManagerUI.js',
 ]
 
 JAR_MANIFESTS += ['jar.mn']

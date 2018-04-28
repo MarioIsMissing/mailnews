@@ -4,16 +4,14 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 XPIDL_SOURCES += [
-    'public/smileIApplication.idl',
+    'nsISidebar.idl',
 ]
 
-XPIDL_MODULE = 'smile'
+XPIDL_MODULE = 'navigatorcompsbase'
 
 EXTRA_COMPONENTS += [
-    'smileApplication.manifest',
+    'sidebar.manifest',
+    'src/nsSidebar.js',
 ]
 
-EXTRA_PP_COMPONENTS += [
-    'src/smileApplication.js',
-]
-
+JAR_MANIFESTS += ['jar.mn']

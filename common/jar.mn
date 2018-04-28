@@ -27,8 +27,7 @@ comm.jar:
    content/communicator/consoleOverlay.xul
    content/communicator/contentAreaClick.js
    content/communicator/contentAreaContextOverlay.xul
-   content/communicator/defaultClientDialog.js
-   content/communicator/defaultClientDialog.xul
+
    content/communicator/findUtils.js
    content/communicator/fullscreen-video.xhtml
    content/communicator/gopherAddon.xhtml
@@ -40,12 +39,9 @@ comm.jar:
    content/communicator/nsContextMenu.js
    content/communicator/openLocation.js
    content/communicator/openLocation.xul
-   content/communicator/passwordManager.xul
    content/communicator/safeMode.js
    content/communicator/safeMode.xul
    content/communicator/sanitize.xul
-   content/communicator/setDesktopBackground.js
-   content/communicator/setDesktopBackground.xul
    content/communicator/tasksOverlay.js
    content/communicator/tasksOverlay.xul
    content/communicator/utilityOverlay.js
@@ -191,17 +187,7 @@ comm.jar:
    content/communicator/search/searchbarBindings.css                (search/searchbarBindings.css)
    content/communicator/search/search-panel.js                      (search/search-panel.js)
    content/communicator/search/search-panel.xul                     (search/search-panel.xul)
-   content/communicator/sidebar/customize-panel.js                  (sidebar/customize-panel.js)
-   content/communicator/sidebar/customize-panel.xul                 (sidebar/customize-panel.xul)
-   content/communicator/sidebar/customize.js                        (sidebar/customize.js)
-   content/communicator/sidebar/customize.xul                       (sidebar/customize.xul)
-   content/communicator/sidebar/PageNotFound.xul                    (sidebar/PageNotFound.xul)
-   content/communicator/sidebar/preview.js                          (sidebar/preview.js)
-   content/communicator/sidebar/preview.xul                         (sidebar/preview.xul)
-   content/communicator/sidebar/sidebarBindings.xml                 (sidebar/sidebarBindings.xml)
-   content/communicator/sidebar/sidebarOverlay.css                  (sidebar/sidebarOverlay.css)
-   content/communicator/sidebar/sidebarOverlay.js                   (sidebar/sidebarOverlay.js)
-   content/communicator/sidebar/sidebarOverlay.xul                  (sidebar/sidebarOverlay.xul)
+
    content/communicator/aboutSyncTabs.xul                           (sync/aboutSyncTabs.xul)
    content/communicator/aboutSyncTabs.js                            (sync/aboutSyncTabs.js)
    content/communicator/aboutSyncTabs.css                           (sync/aboutSyncTabs.css)

@@ -4,18 +4,18 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 XPIDL_SOURCES += [
-    'nsIShellService.idl',
+    'public/nsIShellService.idl',
 ]
 
 if CONFIG['OS_ARCH'] == 'WINNT':
     XPIDL_SOURCES += [
-        'nsIWindowsShellService.idl',
+        'public/nsIWindowsShellService.idl',
     ]
 
 XPIDL_MODULE = 'shellservice'
 
 if CONFIG['OS_ARCH'] == 'WINNT':
-    SOURCES += ['nsWindowsShellService.cpp']
+    SOURCES += ['src/nsWindowsShellService.cpp']
     OS_LIBS += [
         'ole32',
         'version',
@@ -23,16 +23,18 @@ if CONFIG['OS_ARCH'] == 'WINNT':
         'shell32',
     ]
 elif CONFIG['MOZ_WIDGET_TOOLKIT'] == 'cocoa':
-    SOURCES += ['nsMacShellService.cpp']
+    SOURCES += ['src/nsMacShellService.cpp']
 elif 'gtk' in CONFIG['MOZ_WIDGET_TOOLKIT']:
-    SOURCES += ['nsGNOMEShellService.cpp']
+    SOURCES += ['src/nsGNOMEShellService.cpp']
 
 if SOURCES:
     EXTRA_COMPONENTS += [
-        'nsSetDefault.js',
         'nsSetDefault.manifest',
+        'src/nsSetDefault.js',
     ]
 
 FINAL_LIBRARY = 'navigator'
 
 CXXFLAGS += CONFIG['TK_CFLAGS']
+
+JAR_MANIFESTS += ['jar.mn']
