@@ -761,9 +761,10 @@ function UpdateUrlbarSearchSplitterState()
 
 function updateWindowState()
 {
-  getBrowser().showWindowResizer =
-      window.windowState == window.STATE_NORMAL &&
-      !isElementVisible(document.getElementById("status-bar"));
+  // XXXTobin: This is totally busted and shows when coming out of both
+  // full screen modes so set it to false and revisit later
+  getBrowser().showWindowResizer = false;
+
   getBrowser().docShellIsActive =
       window.windowState != window.STATE_MINIMIZED;
 }
