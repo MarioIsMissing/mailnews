@@ -396,7 +396,7 @@ nsGNOMEShellService::SetDesktopBackground(nsIDOMElement* aElement,
     gconf->SetString(NS_LITERAL_CSTRING(DGB_OPTIONS), nsDependentCString(options));
 
     // Set the image to an empty string first to force a refresh (since we could
-    // be writing a new image on top of an existing Borealis_wallpaper.png
+    // be writing a new image on top of an existing SeaMonkey_wallpaper.png
     // and nautilus doesn't monitor the file for changes).
     gconf->SetString(NS_LITERAL_CSTRING(DGB_IMAGE), EmptyCString());
     gconf->SetString(NS_LITERAL_CSTRING(DGB_IMAGE), filePath);
