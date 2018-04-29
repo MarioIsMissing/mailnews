@@ -210,7 +210,7 @@ Section "Uninstall"
   ${EndIf}
 
   ; Remove the updates directory for Vista and above
-  ${un.CleanUpdateDirectories} "Mozilla\SeaMonkey" "Mozilla\updates"
+  ${un.CleanUpdateDirectories} "Mozilla\Borealis" "Mozilla\updates"
 
   ; Remove any app model id's stored in the registry for this install path
   DeleteRegValue HKCU "Software\Mozilla\${AppName}\TaskBarIDs" "$INSTDIR"
@@ -229,11 +229,11 @@ Section "Uninstall"
     ${un.DeleteShortcuts}
   ${EndIf}
 
-  ${un.RegCleanAppHandler} "SeaMonkeyURL"
-  ${un.RegCleanAppHandler} "SeaMonkeyHTML"
-  ${un.RegCleanAppHandler} "SeaMonkeyMAIL"
-  ${un.RegCleanAppHandler} "SeaMonkeyNEWS"
-  ${un.RegCleanAppHandler} "SeaMonkeyEML"
+  ${un.RegCleanAppHandler} "BorealisURL"
+  ${un.RegCleanAppHandler} "BorealisHTML"
+  ${un.RegCleanAppHandler} "BorealisMAIL"
+  ${un.RegCleanAppHandler} "BorealisNEWS"
+  ${un.RegCleanAppHandler} "BorealisEML"
   ${un.RegCleanProtocolHandler} "http"
   ${un.RegCleanProtocolHandler} "https"
   ${un.RegCleanProtocolHandler} "ftp"
@@ -243,24 +243,24 @@ Section "Uninstall"
   ${un.RegCleanProtocolHandler} "snews"
 
   ClearErrors
-  ReadRegStr $R9 HKCR "SeaMonkeyEML" ""
-  ; Don't clean up the file handlers if the SeaMonkeyEML key still exists since
+  ReadRegStr $R9 HKCR "BorealisEML" ""
+  ; Don't clean up the file handlers if the BorealisEML key still exists since
   ; there could be a second installation that may be the default file handler
   ${If} ${Errors}
-    ${un.RegCleanFileHandler}  ".eml"   "SeaMonkeyEML"
+    ${un.RegCleanFileHandler}  ".eml"   "BorealisEML"
   ${EndIf}
 
   ClearErrors
-  ReadRegStr $R9 HKCR "SeaMonkeyHTML" ""
-  ; Don't clean up the file handlers if the SeaMonkeyHTML key still exists since
+  ReadRegStr $R9 HKCR "BorealisHTML" ""
+  ; Don't clean up the file handlers if the BorealisHTML key still exists since
   ; there could be a second installation that may be the default file handler
   ${If} ${Errors}
-    ${un.RegCleanFileHandler}  ".htm"   "SeaMonkeyHTML"
-    ${un.RegCleanFileHandler}  ".html"  "SeaMonkeyHTML"
-    ${un.RegCleanFileHandler}  ".shtml" "SeaMonkeyHTML"
-    ${un.RegCleanFileHandler}  ".webm"  "SeaMonkeyHTML"
-    ${un.RegCleanFileHandler}  ".xht"   "SeaMonkeyHTML"
-    ${un.RegCleanFileHandler}  ".xhtml" "SeaMonkeyHTML"
+    ${un.RegCleanFileHandler}  ".htm"   "BorealisHTML"
+    ${un.RegCleanFileHandler}  ".html"  "BorealisHTML"
+    ${un.RegCleanFileHandler}  ".shtml" "BorealisHTML"
+    ${un.RegCleanFileHandler}  ".webm"  "BorealisHTML"
+    ${un.RegCleanFileHandler}  ".xht"   "BorealisHTML"
+    ${un.RegCleanFileHandler}  ".xhtml" "BorealisHTML"
   ${EndIf}
 
   SetShellVarContext all  ; Set SHCTX to HKLM
@@ -279,7 +279,7 @@ Section "Uninstall"
   ; The StartMenuInternet registry key is independent of the default browser
   ; settings. The XPInstall base un-installer always removes this key if it is
   ; uninstalling the default browser and it will always replace the keys when
-  ; installing even if there is another install of SeaMonkey that is set as the
+  ; installing even if there is another install of Borealis that is set as the
   ; default browser. Now the key is always updated on install but it is only
   ; removed if it refers to this install location.
   ${If} "$INSTDIR" == "$R1"
@@ -297,7 +297,7 @@ Section "Uninstall"
   ; of the default app for the OS settings. The XPInstall base un-installer
   ; always removes these keys if it is uninstalling the default app and it
   ; will always replace the keys when installing even if there is another
-  ; install of SeaMonkey that is set as the default app. Now the keys are always
+  ; install of Borealis that is set as the default app. Now the keys are always
   ; updated on install but are only removed if they refer to this install
   ; location.
   ${If} "$INSTDIR" == "$R1"
@@ -366,8 +366,8 @@ Section "Uninstall"
   ; Remove the installation directory if it is empty
   ${RemoveDir} "$INSTDIR"
 
-  ; If seamonkey.exe was successfully deleted yet we still need to restart to
-  ; remove other files create a dummy seamonkey.exe.moz-delete to prevent the
+  ; If Borealis.exe was successfully deleted yet we still need to restart to
+  ; remove other files create a dummy Borealis.exe.moz-delete to prevent the
   ; installer from allowing an install without restart when it is required
   ; to complete an uninstall.
   ${If} ${RebootFlag}

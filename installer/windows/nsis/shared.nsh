@@ -300,12 +300,12 @@
   StrCpy $2 "$\"$8$\" -url $\"%1$\""
   StrCpy $3 "$\"%1$\",,0,0,,,,"
 
-  ; An empty string is used for the 5th param because SeaMonkeyHTML is not a
+  ; An empty string is used for the 5th param because BorealisHTML is not a
   ; protocol handler
-  ${AddHandlerValues} "$0\SeaMonkeyHTML" "$2" \
+  ${AddHandlerValues} "$0\BorealisHTML" "$2" \
                       "$INSTDIR\chrome\icons\default\html-file.ico,0" \
                       "${AppRegName} Document" "" ""
-  ${AddDDEHandlerValues} "SeaMonkeyURL" "$1" "$8,0" "${AppRegName} URL" "delete" \
+  ${AddDDEHandlerValues} "BorealisURL" "$1" "$8,0" "${AppRegName} URL" "delete" \
                          "${DDEApplication}" "$3" "WWW_OpenURL"
 
   ; An empty string is used for the 4th & 5th params because the following
@@ -316,34 +316,34 @@
   ${AddDDEHandlerValues} "https" "$1" "$8,0" "" "" "${DDEApplication}" "$3" "WWW_OpenURL"
 
   ReadRegStr $6 HKCR ".htm" ""
-  ${If} "$6" != "SeaMonkeyHTML"
-    WriteRegStr SHCTX "$0\.htm" "" "SeaMonkeyHTML"
+  ${If} "$6" != "BorealisHTML"
+    WriteRegStr SHCTX "$0\.htm" "" "BorealisHTML"
   ${EndIf}
 
   ReadRegStr $6 HKCR ".html" ""
-  ${If} "$6" != "SeaMonkeyHTML"
-    WriteRegStr SHCTX "$0\.html" "" "SeaMonkeyHTML"
+  ${If} "$6" != "BorealisHTML"
+    WriteRegStr SHCTX "$0\.html" "" "BorealisHTML"
   ${EndIf}
 
   ReadRegStr $6 HKCR ".shtml" ""
-  ${If} "$6" != "SeaMonkeyHTML"
-    WriteRegStr SHCTX "$0\.shtml" "" "SeaMonkeyHTML"
+  ${If} "$6" != "BorealisHTML"
+    WriteRegStr SHCTX "$0\.shtml" "" "BorealisHTML"
   ${EndIf}
 
   ReadRegStr $6 HKCR ".xht" ""
-  ${If} "$6" != "SeaMonkeyHTML"
-     WriteRegStr SHCTX "$0\.xht" "" "SeaMonkeyHTML"
+  ${If} "$6" != "BorealisHTML"
+     WriteRegStr SHCTX "$0\.xht" "" "BorealisHTML"
   ${EndIf}
 
   ReadRegStr $6 HKCR ".xhtml" ""
-  ${If} "$6" != "SeaMonkeyHTML"
-    WriteRegStr SHCTX "$0\.xhtml" "" "SeaMonkeyHTML"
+  ${If} "$6" != "BorealisHTML"
+    WriteRegStr SHCTX "$0\.xhtml" "" "BorealisHTML"
   ${EndIf}
 
   ; Only add webm if it's not present
   ${CheckIfRegistryKeyExists} "$0" ".webm" $7
   ${If} $7 == "false"
-    WriteRegStr SHCTX "$0\.webm"  "" "SeaMonkeyHTML"
+    WriteRegStr SHCTX "$0\.webm"  "" "BorealisHTML"
   ${EndIf}
 !macroend
 !define SetHandlersBrowser "!insertmacro SetHandlersBrowser"
@@ -355,21 +355,21 @@
   StrCpy $1 "$\"$8$\" $\"%1$\""
   StrCpy $2 "$\"$8$\" -osint -compose $\"%1$\""
 
-  ; An empty string is used for the 5th param because SeaMonkeyEML is not a
+  ; An empty string is used for the 5th param because BorealisEML is not a
   ; protocol handler
-  ${AddHandlerValues} "$0\SeaMonkeyEML"  "$1" "$INSTDIR\chrome\icons\default\misc-file.ico,0" "${AppRegNameMail} Document" "" ""
+  ${AddHandlerValues} "$0\BorealisEML"  "$1" "$INSTDIR\chrome\icons\default\misc-file.ico,0" "${AppRegNameMail} Document" "" ""
 
-  ${AddHandlerValues} "$0\SeaMonkeyCOMPOSE" "$2" "$8,0" "${AppRegNameMail} URL" "delete" ""
+  ${AddHandlerValues} "$0\BorealisCOMPOSE" "$2" "$8,0" "${AppRegNameMail} URL" "delete" ""
 
   ; An empty string is used for the 4th & 5th params because the following
   ; protocol handler already has a display name and additional keys required
   ; for a protocol handler.
   ${AddHandlerValues} "$0\mailto" "$2" "$8,0" "${AppRegNameMail} URL" "true" ""
 
-  ; Associate the file handlers with SeaMonkeyEML
+  ; Associate the file handlers with BorealisEML
   ReadRegStr $6 HKCR ".eml" ""
-  ${If} "$6" != "SeaMonkeyEML"
-    WriteRegStr SHCTX "$0\.eml"   "" "SeaMonkeyEML"
+  ${If} "$6" != "BorealisEML"
+    WriteRegStr SHCTX "$0\.eml"   "" "BorealisEML"
   ${EndIf}
 !macroend
 !define SetHandlersMail "!insertmacro SetHandlersMail"
@@ -379,7 +379,7 @@
   StrCpy $0 "SOFTWARE\Classes"
   StrCpy $1 "$\"$8$\" -osint -mail $\"%1$\""
 
-  ${AddHandlerValues} "$0\SeaMonkeyNEWS" "$1" "$8,0" "${AppRegNameNews} URL" "delete" ""
+  ${AddHandlerValues} "$0\BorealisNEWS" "$1" "$8,0" "${AppRegNameNews} URL" "delete" ""
   ; An empty string is used for the 4th & 5th params because the following
   ; protocol handlers already have a display name and additional keys required
   ; for a protocol handler.
@@ -421,17 +421,17 @@
   WriteRegStr HKLM "$0\Capabilities" "ApplicationIcon" "$8,0"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationName" "${BrandShortName}"
 
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".htm"   "SeaMonkeyHTML" 
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".html"  "SeaMonkeyHTML"
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".shtml" "SeaMonkeyHTML"
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".xht"   "SeaMonkeyHTML"
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".xhtml" "SeaMonkeyHTML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".htm"   "BorealisHTML" 
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".html"  "BorealisHTML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".shtml" "BorealisHTML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".xht"   "BorealisHTML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".xhtml" "BorealisHTML"
 
   WriteRegStr HKLM "$0\Capabilities\StartMenu" "StartMenuInternet" "$R9"
 
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "ftp"    "SeaMonkeyURL"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "http"   "SeaMonkeyURL"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "https"  "SeaMonkeyURL"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "ftp"    "BorealisURL"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "http"   "BorealisURL"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "https"  "BorealisURL"
 
   ; Vista Registered Application
   WriteRegStr HKLM "Software\RegisteredApplications" "${AppRegName}" "$0\Capabilities"
@@ -439,19 +439,19 @@
 !define SetStartMenuInternet "!insertmacro SetStartMenuInternet"
 
 !macro FixShellIconHandler
-  ; The IconHandler reference for SeaMonkeyHTML can end up in an inconsistent
+  ; The IconHandler reference for BorealisHTML can end up in an inconsistent
   ; state due to changes not being detected by the IconHandler for side by side
   ; installs. The symptoms can be either an incorrect icon or no icon being
-  ; displayed for files associated with SeaMonkey. By setting it here it will
+  ; displayed for files associated with Borealis. By setting it here it will
   ; always reference the install referenced in the
-  ; HKLM\Software\Classes\SeaMonkeyHTML registry key.
+  ; HKLM\Software\Classes\BorealisHTML registry key.
   ClearErrors
-  ReadRegStr $2 HKLM "Software\Classes\SeaMonkeyHTML\ShellEx\IconHandler" ""
+  ReadRegStr $2 HKLM "Software\Classes\BorealisHTML\ShellEx\IconHandler" ""
   ${Unless} ${Errors}
     ClearErrors
-    ReadRegStr $3 HKLM "Software\Classes\CLSID\$2\Old Icon\SeaMonkeyHTML\DefaultIcon" ""
+    ReadRegStr $3 HKLM "Software\Classes\CLSID\$2\Old Icon\BorealisHTML\DefaultIcon" ""
     ${Unless} ${Errors}
-      WriteRegStr HKLM "Software\Classes\CLSID\$2\Old Icon\SeaMonkeyHTML\DefaultIcon" "" "$INSTDIR\chrome\icons\default\html-file.ico,0"
+      WriteRegStr HKLM "Software\Classes\CLSID\$2\Old Icon\BorealisHTML\DefaultIcon" "" "$INSTDIR\chrome\icons\default\html-file.ico,0"
     ${EndUnless}
   ${EndUnless}
 !macroend
@@ -535,9 +535,9 @@
   WriteRegStr HKLM "$0\Capabilities" "ApplicationDescription" "$(REG_APP_DESC)"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationIcon" "$8,0"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationName" "${AppRegNameMail}"
-  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".eml"   "SeaMonkeyEML"
+  WriteRegStr HKLM "$0\Capabilities\FileAssociations" ".eml"   "BorealisEML"
   WriteRegStr HKLM "$0\Capabilities\StartMenu" "Mail" "${BrandFullNameInternal}"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "mailto" "SeaMonkeyCOMPOSE"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "mailto" "BorealisCOMPOSE"
 
   ; Vista Registered Application
   WriteRegStr HKLM "Software\RegisteredApplications" "${AppRegNameMail}" "$0\Capabilities"
@@ -593,9 +593,9 @@
   WriteRegStr HKLM "$0\Capabilities" "ApplicationDescription" "$(REG_APP_DESC)"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationIcon" "$8,0"
   WriteRegStr HKLM "$0\Capabilities" "ApplicationName" "${AppRegNameNews}"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "nntp" "SeaMonkeyNEWS"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "news" "SeaMonkeyNEWS"
-  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "snews" "SeaMonkeyNEWS"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "nntp" "BorealisNEWS"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "news" "BorealisNEWS"
+  WriteRegStr HKLM "$0\Capabilities\URLAssociations" "snews" "BorealisNEWS"
 
   ; Protocols
   StrCpy $1 "$\"$8$\" -osint -mail $\"%1$\""
@@ -689,18 +689,18 @@
 
   ; Only set the file and protocol handlers if the existing one under HKCR is
   ; for this install location.
-  ${IsHandlerForInstallDir} "SeaMonkeyHTML" $R9
+  ${IsHandlerForInstallDir} "BorealisHTML" $R9
   ${If} "$R9" == "true"
-    ; An empty string is used for the 5th param because SeaMonkeyHTML is not a
+    ; An empty string is used for the 5th param because BorealisHTML is not a
     ; protocol handler.
-    ${AddHandlerValues} "$0\SeaMonkeyHTML" "$5" \
+    ${AddHandlerValues} "$0\BorealisHTML" "$5" \
                         "$INSTDIR\chrome\icons\default\html-file.ico,0" \
                         "${AppRegName} Document" "" ""
   ${EndIf}
 
-  ${IsHandlerForInstallDir} "SeaMonkeyURL" $R9
+  ${IsHandlerForInstallDir} "BorealisURL" $R9
   ${If} "$R9" == "true"
-    ${AddDDEHandlerValues} "SeaMonkeyURL" "$3" "$8,0" "${AppRegName} URL" \
+    ${AddDDEHandlerValues} "BorealisURL" "$3" "$8,0" "${AppRegName} URL" \
                            "delete" "${DDEApplication}" "$4" "WWW_OpenURL"
   ${EndIf}
 
@@ -722,16 +722,16 @@
                            "$4" "WWW_OpenURL"
   ${EndIf}
 
-  ${IsHandlerForInstallDir} "SeaMonkeyEML" $R9
+  ${IsHandlerForInstallDir} "BorealisEML" $R9
   ${If} "$R9" == "true"
-    ${AddHandlerValues} "SOFTWARE\Classes\SeaMonkeyEML" "$2" \
+    ${AddHandlerValues} "SOFTWARE\Classes\BorealisEML" "$2" \
                         "$INSTDIR\chrome\icons\default\misc-file.ico,0" \
                         "${AppRegNameMail} Document" "" ""
   ${EndIf}
 
-  ${IsHandlerForInstallDir} "SeaMonkeyMAIL" $R9
+  ${IsHandlerForInstallDir} "BorealisMAIL" $R9
   ${If} "$R9" == "true"
-    ${AddHandlerValues} "SOFTWARE\Classes\SeaMonkeyMAIL" "$2" "$8,0" \
+    ${AddHandlerValues} "SOFTWARE\Classes\BorealisMAIL" "$2" "$8,0" \
                         "${AppRegNameMail} URL" "delete" ""
   ${EndIf}
 
@@ -740,9 +740,9 @@
     ${AddHandlerValues} "SOFTWARE\Classes\mailto" "$1" "$8,0" "" "" ""
   ${EndIf}
 
-  ${IsHandlerForInstallDir} "SeaMonkeyNEWS" $R9
+  ${IsHandlerForInstallDir} "BorealisNEWS" $R9
   ${If} "$R9" == "true"
-    ${AddHandlerValues} "SOFTWARE\Classes\SeaMonkeyNEWS" "$2" "$8,0" \
+    ${AddHandlerValues} "SOFTWARE\Classes\BorealisNEWS" "$2" "$8,0" \
                         "${AppRegNameMail} URL" "delete" ""
   ${EndIf}
 
@@ -768,11 +768,11 @@
 !macro RemoveDeprecatedKeys
   StrCpy $0 "SOFTWARE\Classes"
   ; Remove support for launching gopher urls from the shell during install or
-  ; update if the DefaultIcon is from seamonkey.exe.
+  ; update if the DefaultIcon is from Borealis.exe.
   ${RegCleanAppHandler} "gopher"
   
   ; Remove support for launching chrome urls from the shell during install or
-  ; update if the DefaultIcon is from seamonkey.exe (Bug 301073).
+  ; update if the DefaultIcon is from Borealis.exe (Bug 301073).
   ${RegCleanAppHandler} "chrome"
   
   ; Delete gopher from Capabilities\URLAssociations if it is present.
@@ -784,10 +784,10 @@
     DeleteRegValue HKLM "$0\Capabilities\URLAssociations" "gopher"
   ${EndUnless}
 
-  ; Delete gopher from the user's UrlAssociations if it points to SeamonkeyURL.
+  ; Delete gopher from the user's UrlAssociations if it points to BorealisURL.
   StrCpy $0 "Software\Microsoft\Windows\Shell\Associations\UrlAssociations\gopher"
   ReadRegStr $2 HKCU "$0\UserChoice" "Progid"
-  ${If} "$2" == "SeamonkeyURL"
+  ${If} "$2" == "BorealisURL"
     DeleteRegKey HKCU "$0"
   ${EndIf}
 !macroend
@@ -829,11 +829,11 @@
 
   ; Always set the file and protocol handlers since they may specify a
   ; different path and the path is used by Vista when setting associations.
-  ${AddHandlerValues} "$0\SeaMonkeyURL" "$1" "$8,0" "${AppRegName} URL" "delete" "true"
+  ${AddHandlerValues} "$0\BorealisURL" "$1" "$8,0" "${AppRegName} URL" "delete" "true"
 
-  ; An empty string is used for the 5th param because SeaMonkeyHTML is not a
+  ; An empty string is used for the 5th param because BorealisHTML is not a
   ; protocol handler
-  ${AddHandlerValues} "$0\SeaMonkeyHTML" "$2" \
+  ${AddHandlerValues} "$0\BorealisHTML" "$2" \
                       "$INSTDIR\chrome\icons\default\html-file.ico,0" \
                       "${AppRegName} Document" "" ""
 
@@ -862,7 +862,7 @@
   GetFullPathName $8 "$INSTDIR\${FileMainEXE}"
 
   StrCpy $1 "$\"$8$\" -compose $\"%1$\""
-  ${AddHandlerValues} "$0\SeaMonkeyCOMPOSE" "$1" "$8,0" "${AppRegNameMail} URL" "delete" ""
+  ${AddHandlerValues} "$0\BorealisCOMPOSE" "$1" "$8,0" "${AppRegNameMail} URL" "delete" ""
 
   ReadRegStr $2 SHCTX "$0\mailto\shell\open\command" ""
   ${GetPathFromString} "$2" $3
@@ -874,10 +874,10 @@
   ${EndUnless}
 
   StrCpy $1 "$\"$8$\" $\"%1$\""
-  ${AddHandlerValues} "$0\SeaMonkeyEML" "$1" "$INSTDIR\chrome\icons\default\misc-file.ico,0" "${AppRegNameMail} Document" "" ""
+  ${AddHandlerValues} "$0\BorealisEML" "$1" "$INSTDIR\chrome\icons\default\misc-file.ico,0" "${AppRegNameMail} Document" "" ""
 
   StrCpy $1 "$\"$8$\" -osint -mail $\"%1$\""
-  ${AddHandlerValues} "$0\SeaMonkeyNEWS" "$1" "$8,0" "${AppRegNameNews} URL" "delete" ""
+  ${AddHandlerValues} "$0\BorealisNEWS" "$1" "$8,0" "${AppRegNameNews} URL" "delete" ""
 
   ReadRegStr $2 SHCTX "$0\news\shell\open\command" ""
   ${GetPathFromString} "$2" $3

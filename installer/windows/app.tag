@@ -1,4 +1,4 @@
 ;!@Install@!UTF-8!
-Title="SeaMonkey"
+Title="Borealis"
 RunProgram="setup.exe"
 ;!@InstallEnd@!

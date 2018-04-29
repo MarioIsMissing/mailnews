@@ -72,9 +72,9 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// Default SeaMonkey OS integration Registry Settings
+// Default Borealis OS integration Registry Settings
 // Note: Some settings only exist when using the installer!
-//       The setting of SeaMonkey as default application is made by a helper
+//       The setting of Borealis as default application is made by a helper
 //       application since writing those values may require elevation.
 //
 // Default Browser settings:
@@ -84,24 +84,24 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //    .htm .html .shtml .xht .xhtml
 //   are mapped like so:
 //
-//   HKCU\SOFTWARE\Classes\.<ext>\      (default)         REG_SZ   SeaMonkeyHTML
+//   HKCU\SOFTWARE\Classes\.<ext>\      (default)         REG_SZ   BorealisHTML
 //
 //   as aliases to the class:
 //
-//   HKCU\SOFTWARE\Classes\SeaMonkeyHTML\
+//   HKCU\SOFTWARE\Classes\BorealisHTML\
 //     DefaultIcon                      (default)         REG_SZ     <appfolder>\chrome\icons\default\html-file.ico
 //     shell\open\command               (default)         REG_SZ     <apppath> -url "%1"
 //
 // - Windows Vista Protocol Handler
 //
-//   HKCU\SOFTWARE\Classes\SeaMonkeyURL\(default)         REG_SZ     <appname> URL
+//   HKCU\SOFTWARE\Classes\BorealisURL\(default)         REG_SZ     <appname> URL
 //                                      EditFlags         REG_DWORD  2
 //                                      FriendlyTypeName  REG_SZ     <appname> URL
 //     DefaultIcon                      (default)         REG_SZ     <apppath>,1
 //     shell\open\command               (default)         REG_SZ     <apppath> -requestPending -osint -url "%1"
 //     shell\open\ddeexec               (default)         REG_SZ     "%1",,0,0,,,,
 //     shell\open\ddeexec               NoActivateHandler REG_SZ
-//                       \Application   (default)         REG_SZ     SeaMonkey
+//                       \Application   (default)         REG_SZ     Borealis
 //                       \Topic         (default)         REG_SZ     WWW_OpenURL
 //
 // - Protocol Mappings
@@ -115,15 +115,15 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //     shell\open\command               (default)         REG_SZ     <apppath> -requestPending -osint -url "%1"
 //     shell\open\ddeexec               (default)         REG_SZ     "%1",,0,0,,,,
 //     shell\open\ddeexec               NoActivateHandler REG_SZ
-//                       \Application   (default)         REG_SZ     SeaMonkey
+//                       \Application   (default)         REG_SZ     Borealis
 //                       \Topic         (default)         REG_SZ     WWW_OpenURL
 //
 // - Windows Start Menu (Win2K SP2, XP SP1, and newer)
 //   -------------------------------------------------
-//   The following keys are set to make SeaMonkey appear in the Start Menu as the
+//   The following keys are set to make Borealis appear in the Start Menu as the
 //   browser:
 //
-//   HKCU\SOFTWARE\Clients\StartMenuInternet\SEAMONKEY.EXE\
+//   HKCU\SOFTWARE\Clients\StartMenuInternet\Borealis.EXE\
 //                                      (default)         REG_SZ     <appname>
 //     DefaultIcon                      (default)         REG_SZ     <apppath>,0
 //     InstallInfo                      HideIconsCommand  REG_SZ     <uninstpath> /HideShortcuts
@@ -146,22 +146,22 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //    .eml
 //   is mapped like this:
 //
-//   HKCU\SOFTWARE\Classes\.eml         (default)         REG_SZ    SeaMonkeyEML
+//   HKCU\SOFTWARE\Classes\.eml         (default)         REG_SZ    BorealisEML
 //
 //   That aliases to this class:
-//   HKCU\SOFTWARE\Classes\SeaMonkeyEML\ (default)        REG_SZ    SeaMonkey (Mail) Document
-//                                      FriendlyTypeName  REG_SZ    SeaMonkey (Mail) Document
+//   HKCU\SOFTWARE\Classes\BorealisEML\ (default)        REG_SZ    Borealis (Mail) Document
+//                                      FriendlyTypeName  REG_SZ    Borealis (Mail) Document
 //     DefaultIcon                      (default)         REG_SZ    <appfolder>\chrome\icons\default\misc-file.ico
 //     shell\open\command               (default)         REG_SZ    <apppath> "%1"
 //
 // - Windows Vista Protocol Handler
 //
-//   HKCU\SOFTWARE\Classes\SeaMonkeyCOMPOSE (default)     REG_SZ    SeaMonkey (Mail) URL
+//   HKCU\SOFTWARE\Classes\BorealisCOMPOSE (default)     REG_SZ    Borealis (Mail) URL
 //                                       DefaultIcon      REG_SZ    <apppath>,0
 //                                       EditFlags        REG_DWORD 2
 //     shell\open\command                (default)        REG_SZ    <apppath> -osint -compose "%1"
 //
-//   HKCU\SOFTWARE\Classes\SeaMonkeyNEWS (default)        REG_SZ    SeaMonkey (News) URL
+//   HKCU\SOFTWARE\Classes\BorealisNEWS (default)        REG_SZ    Borealis (News) URL
 //                                       DefaultIcon      REG_SZ    <apppath>,0
 //                                       EditFlags        REG_DWORD 2
 //     shell\open\command                (default)        REG_SZ    <apppath> -osint -news "%1"
@@ -173,7 +173,7 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //    mailto
 //   is mapped like this:
 //
-//   HKCU\SOFTWARE\Classes\mailto\       (default)       REG_SZ     SeaMonkey (Mail) URL
+//   HKCU\SOFTWARE\Classes\mailto\       (default)       REG_SZ     Borealis (Mail) URL
 //                                       EditFlags       REG_DWORD  2
 //                                       URL Protocol    REG_SZ
 //    DefaultIcon                        (default)       REG_SZ     <apppath>,0
@@ -183,7 +183,7 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //    news,nntp,snews
 //   are mapped like this:
 //
-//   HKCU\SOFTWARE\Classes\<protocol>\   (default)       REG_SZ     SeaMonkey (News) URL
+//   HKCU\SOFTWARE\Classes\<protocol>\   (default)       REG_SZ     Borealis (News) URL
 //                                       EditFlags       REG_DWORD  2
 //                                       URL Protocol    REG_SZ
 //    DefaultIcon                        (default)       REG_SZ     <appath>,0
@@ -191,10 +191,10 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //
 // - Windows Start Menu (Win2K SP2, XP SP1, and newer)
 //   -------------------------------------------------
-//   The following keys are set to make SeaMonkey appear in the Start Menu as
+//   The following keys are set to make Borealis appear in the Start Menu as
 //   the default mail program:
 //
-//   HKCU\SOFTWARE\Clients\Mail\SeaMonkey
+//   HKCU\SOFTWARE\Clients\Mail\Borealis
 //                                   (default)           REG_SZ     <appname>
 //                                   DLLPath             REG_SZ     <appfolder>\mozMapi32.dll
 //    DefaultIcon                    (default)           REG_SZ     <apppath>,0
@@ -205,11 +205,11 @@ OpenKeyForReading(HKEY aKeyRoot, const wchar_t* aKeyName, HKEY* aKey)
 //    shell\properties               (default)           REG_SZ     <appname> &Preferences
 //    shell\properties\command       (default)           REG_SZ     <apppath> -preferences
 //
-//   Also set SeaMonkey as News reader (Usenet), though Windows does currently
+//   Also set Borealis as News reader (Usenet), though Windows does currently
 //   not expose a default news reader to UI. Applications like Outlook Express
 //   also add themselves to this registry key
 //
-//   HKCU\SOFTWARE\Clients\News\SeaMonkey
+//   HKCU\SOFTWARE\Clients\News\Borealis
 //                                   (default)           REG_SZ     <appname>
 //                                   DLLPath             REG_SZ     <appfolder>\mozMapi32.dll
 //    DefaultIcon                    (default)           REG_SZ     <apppath>,0
@@ -223,17 +223,17 @@ typedef enum {
   APP_PATH_SUBSTITUTION     = 0x01
 } SettingFlags;
 
-#define APP_REG_NAME L"SeaMonkey"
+#define APP_REG_NAME L"Borealis"
 // APP_REG_NAME_MAIL and APP_REG_NAME_NEWS should be kept in synch with
 // AppRegNameMail and AppRegNameNews in the installer file: defines.nsi.in
-#define APP_REG_NAME_MAIL L"SeaMonkey (Mail)"
-#define APP_REG_NAME_NEWS L"SeaMonkey (News)"
-#define CLS_HTML "SeaMonkeyHTML"
-#define CLS_URL "SeaMonkeyURL"
-#define CLS_EML "SeaMonkeyEML"
-#define CLS_MAILTOURL "SeaMonkeyCOMPOSE"
-#define CLS_NEWSURL "SeaMonkeyNEWS"
-#define CLS_FEEDURL "SeaMonkeyFEED"
+#define APP_REG_NAME_MAIL L"Borealis (Mail)"
+#define APP_REG_NAME_NEWS L"Borealis (News)"
+#define CLS_HTML "BorealisHTML"
+#define CLS_URL "BorealisURL"
+#define CLS_EML "BorealisEML"
+#define CLS_MAILTOURL "BorealisCOMPOSE"
+#define CLS_NEWSURL "BorealisNEWS"
+#define CLS_FEEDURL "BorealisFEED"
 #define SMI "SOFTWARE\\Clients\\StartMenuInternet\\"
 #define DI "\\DefaultIcon"
 #define II "\\InstallInfo"
@@ -248,13 +248,13 @@ typedef enum {
   PREFIX MID
 
 // The DefaultIcon registry key value should never be used (e.g. NON_ESSENTIAL)
-// when checking if SeaMonkey is the default browser since other applications
+// when checking if Borealis is the default browser since other applications
 // (e.g. MS Office) may modify the DefaultIcon registry key value to add Icon
 // Handlers.
 // see http://msdn2.microsoft.com/en-us/library/aa969357.aspx for more info.
 static SETTING gBrowserSettings[] = {
   // File Extension Class - as of 1.8.1.2 the value for VAL_URL_OPEN is also
-  // checked for CLS_HTML since SeaMonkey should also own opening local files
+  // checked for CLS_HTML since Borealis should also own opening local files
   // when set as the default browser.
   { MAKE_KEY_NAME1(CLS_HTML, SOP), "", VAL_HTML_OPEN, APP_PATH_SUBSTITUTION },
 
@@ -268,8 +268,8 @@ static SETTING gBrowserSettings[] = {
   { MAKE_KEY_NAME1("HTTPS", SOP),  "", VAL_URL_OPEN, APP_PATH_SUBSTITUTION }
 
   // These values must be set by hand, since they contain localized strings.
-  //   seamonkey.exe\shell\properties   (default)   REG_SZ  SeaMonkey &Preferences
-  //   seamonkey.exe\shell\safemode     (default)   REG_SZ  SeaMonkey &Safe Mode
+  //   Borealis.exe\shell\properties   (default)   REG_SZ  Borealis &Preferences
+  //   Borealis.exe\shell\safemode     (default)   REG_SZ  Borealis &Safe Mode
 };
 
  static SETTING gMailSettings[] = {
@@ -785,7 +785,7 @@ nsWindowsShellService::SetDesktopBackground(nsIDOMElement* aElement,
                               getter_AddRefs(file));
   NS_ENSURE_SUCCESS(rv, rv);
 
-  // eventually, the path is "%APPDATA%\Mozilla\SeaMonkey\Desktop Background.bmp"
+  // eventually, the path is "%APPDATA%\Mozilla\Borealis\Desktop Background.bmp"
   rv = file->Append(fileLeafName);
   NS_ENSURE_SUCCESS(rv, rv);
 

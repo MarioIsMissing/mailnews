@@ -1,17 +1,17 @@
 #filter substitution
-!define AppName               "SeaMonkey"
+!define AppName               "Borealis"
 !define AppVersion            "@APP_VERSION@"
 !define GREVersion            @MOZILLA_VERSION@
 !define AB_CD                 "@AB_CD@"
 !define NO_UNINSTALL_SURVEY
 
 !define FileMainEXE           "@MOZ_APP_NAME@.exe"
-!define WindowClass           "SeaMonkeyMessageWindow"
-!define DDEApplication        "SeaMonkey"
+!define WindowClass           "BorealisMessageWindow"
+!define DDEApplication        "Borealis"
 
-!define AppRegName            "SeaMonkey"
-!define AppRegNameMail        "SeaMonkey (Mail)"
-!define AppRegNameNews        "SeaMonkey (News)"
+!define AppRegName            "Borealis"
+!define AppRegNameMail        "Borealis (Mail)"
+!define AppRegNameNews        "Borealis (News)"
 
 !define BrandShortName        "@MOZ_APP_DISPLAYNAME@"
 !define BrandFullName         "${BrandFullNameInternal}"

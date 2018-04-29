@@ -21,10 +21,10 @@ interface nsIShellService : nsISupports
   const unsigned short RSS     = 0x0008;
 
   /**
-   * Determines whether or not SeaMonkey is the "Default Client" for the
+   * Determines whether or not Borealis is the "Default Client" for the
    * passed in app type.
    *
-   * This is simply whether or not SeaMonkey is registered to handle
+   * This is simply whether or not Borealis is registered to handle
    * the url schemes associated with the app.
    *
    * @param aStartupCheck true if this is the check being performed
@@ -35,13 +35,13 @@ interface nsIShellService : nsISupports
   boolean isDefaultClient(in boolean aStartupCheck, in unsigned short aApps);
 
   /**
-   * Registers SeaMonkey as the "Default Client" for the
+   * Registers Borealis as the "Default Client" for the
    * passed in app types.
    *
-   * @param aForAllUsers   Whether or not SeaMonkey should attempt
+   * @param aForAllUsers   Whether or not Borealis should attempt
    *                       to become the default client for all
    *                       users on a multi-user system.
-   * @param aClaimAllTypes Register SeaMonkey as the handler for
+   * @param aClaimAllTypes Register Borealis as the handler for
    *                       additional protocols (ftp, chrome etc)
    *                       and web documents (.html, .xhtml etc).
    * @param aApps the application types being tested (Mail, News, Browser, RSS)

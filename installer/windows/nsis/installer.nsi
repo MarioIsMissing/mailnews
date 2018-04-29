@@ -250,7 +250,7 @@ Section "-InstallStartCleanup"
   ${InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
 
   ; Remove the updates directory for Vista and above
-  ${CleanUpdateDirectories} "Mozilla\SeaMonkey" "Mozilla\updates"
+  ${CleanUpdateDirectories} "Mozilla\Borealis" "Mozilla\updates"
 
   ${InstallStartCleanupCommon}
 SectionEnd
@@ -384,12 +384,12 @@ Section "-Application" APP_IDX
   StrCpy $3 "$\"$8$\"  -url $\"%1$\""
   ${GetLongPath} "$INSTDIR\${FileMainEXE}" $8
 
-  ; An empty string is used for the 5th param because SeaMonkeyHTML is not a
+  ; An empty string is used for the 5th param because BorealisHTML is not a
   ; protocol handler
-  ${AddHandlerValues} "SOFTWARE\Classes\SeaMonkeyHTML" "$3" \
+  ${AddHandlerValues} "SOFTWARE\Classes\BorealisHTML" "$3" \
                       "$INSTDIR\chrome\icons\default\html-file.ico,0" \
                       "${AppRegName} Document" "" ""
-  ${AddDDEHandlerValues} "SeaMonkeyURL" "$1" "$8,0" "${AppRegName} URL" "" \
+  ${AddDDEHandlerValues} "BorealisURL" "$1" "$8,0" "${AppRegName} URL" "" \
                          "${DDEApplication}" "$2" "WWW_OpenURL"
 
   ${FixShellIconHandler}
