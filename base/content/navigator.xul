@@ -494,6 +494,7 @@
                     onnewtab="BrowserOpenTab();"
                     onnewtabclick="checkForMiddleClick(this, event);"
                     autocompletepopup="PopupAutoComplete"
+                    onbookmarktab="PlacesCommandHook.bookmarkCurrentPage(false, PlacesUtils.bookmarksMenuFolderId);"
                     onbookmarkgroup="PlacesCommandHook.bookmarkCurrentPages();"
                     oncontentclick="return contentAreaClick(event);"
                     oncommand="BrowserOnCommand(event);"/>

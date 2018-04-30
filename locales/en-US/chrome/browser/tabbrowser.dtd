@@ -13,8 +13,9 @@
 <!ENTITY  reloadAllTabs.accesskey         "A">
 <!ENTITY  reloadTab.label        "Reload Tab">
 <!ENTITY  reloadTab.accesskey         "R">
+<!ENTITY  bookmarkTab.label    "Bookmark This Tab">
+<!ENTITY  bookmarkTab.accesskey  "B">
 <!ENTITY  bookmarkGroup.label    "Bookmark This Group of Tabs">
-<!ENTITY  bookmarkGroup.accesskey  "B">
 <!ENTITY  closeTabButton.tooltip   "Close current tab">
 <!ENTITY  newTabButton.tooltip   "Open a new tab">
 <!ENTITY  listAllTabs.tooltip    "List all tabs">
