@@ -9,11 +9,6 @@
 <!ENTITY dontCheckSpelling.label              "Never">
 <!ENTITY multilineCheckSpelling.label         "In multiline boxes">
 <!ENTITY alwaysCheckSpelling.label            "All boxes">
-<!ENTITY spellForMailAndNews.label            "Mail &amp; Newsgroups">
-<!ENTITY checkSpellingBeforeSend.label        "Check spelling before sending">
-<!ENTITY checkSpellingBeforeSend.accesskey    "C">
-<!ENTITY spellCheckInline.label               "Check spelling as you type">
-<!ENTITY spellCheckInline.accesskey           "e">
 <!ENTITY languagePopup.label                  "Language:">
 <!ENTITY languagePopup.accessKey              "L">
 <!ENTITY moreDictionaries.label               "Download more dictionaries&#x2026;">
