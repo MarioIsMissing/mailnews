@@ -53,7 +53,7 @@ pref("extensions.update.autoUpdateDefault", true); // Download and install autom
 pref("extensions.autoDisableScopes", 15);
 
 // Preferences for AMO integration
-pref("extensions.getAddons.cache.enabled", true);  // also toggles personalized recommendations
+pref("extensions.getAddons.cache.enabled", false);  // also toggles personalized recommendations
 pref("extensions.getAddons.maxResults", 15);
 pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=seamonkey&appOS=%OS%&appVersion=%VERSION%");
 pref("extensions.getAddons.getWithPerformance.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=seamonkey&appOS=%OS%&appVersion=%VERSION%&tMain=%TIME_MAIN%&tFirstPaint=%TIME_FIRST_PAINT%&tSessionRestored=%TIME_SESSION_RESTORED%");
@@ -66,7 +66,7 @@ pref("extensions.webservice.discoverURL", "https://services.addons.mozilla.org/%
 // getMoreThemes is used by our UI under our switch theme menu
 pref("extensions.getMoreThemesURL", "chrome://branding/locale/brand.properties");
 pref("extensions.getPersonasURL", "chrome://branding/locale/brand.properties");
-pref("extensions.dss.enabled", true);          // Dynamic Skin Switching
+pref("extensions.dss.enabled", false);          // Dynamic Skin Switching
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
                                                 // restart.
 
