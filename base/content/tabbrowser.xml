@@ -38,10 +38,18 @@
             <xul:label class="tooltip-label" hidden="true"><html:canvas class="tab-tooltip-canvas"/></xul:label>
           </xul:tooltip>
           <xul:menupopup anonid="tabContextMenu" onpopupshowing="return document.getBindingParent(this).updatePopupMenu(this);">
-            <xul:menuitem label="&closeTab.label;" accesskey="&closeTab.accesskey;"
+            <xul:menuitem label="&reloadTab.label;" accesskey="&reloadTab.accesskey;"
                           tbattr="tabbrowser-tab"
                           oncommand="var tabbrowser = this.parentNode.parentNode.parentNode.parentNode;
-                                     tabbrowser.removeTab(tabbrowser.mContextTab);"/>
+                                     tabbrowser.reloadTab(tabbrowser.mContextTab);"/>
+            <xul:menuitem label="&reloadAllTabs.label;" accesskey="&reloadAllTabs.accesskey;"
+                          tbattr="tabbrowser-multiple"
+                          oncommand="var tabbrowser = this.parentNode.parentNode.parentNode.parentNode;
+                                     tabbrowser.reloadAllTabs();"/>
+            <xul:menuseparator/>
+            <xul:menuitem label="&bookmarkGroup.label;" accesskey="&bookmarkGroup.accesskey;"
+                          tbattr="tabbrowser-multiple"
+                          xbl:inherits="oncommand=onbookmarkgroup"/>
             <xul:menuitem label="&closeOtherTabs.label;" accesskey="&closeOtherTabs.accesskey;"
                           tbattr="tabbrowser-multiple tabbrowser-tab"
                           oncommand="var tabbrowser = this.parentNode.parentNode.parentNode.parentNode;
@@ -53,19 +61,10 @@
                           tbattr="tabbrowser-undoclosetab"
                           oncommand="var tabbrowser = this.parentNode.parentNode.parentNode.parentNode;
                                      tabbrowser.undoCloseTab(0);"/>
-            <xul:menuseparator/>
-            <xul:menuitem label="&bookmarkGroup.label;" accesskey="&bookmarkGroup.accesskey;"
-                          tbattr="tabbrowser-multiple"
-                          xbl:inherits="oncommand=onbookmarkgroup"/>
-            <xul:menuseparator/>
-            <xul:menuitem label="&reloadTab.label;" accesskey="&reloadTab.accesskey;"
+            <xul:menuitem label="&closeTab.label;" accesskey="&closeTab.accesskey;"
                           tbattr="tabbrowser-tab"
                           oncommand="var tabbrowser = this.parentNode.parentNode.parentNode.parentNode;
-                                     tabbrowser.reloadTab(tabbrowser.mContextTab);"/>
-            <xul:menuitem label="&reloadAllTabs.label;" accesskey="&reloadAllTabs.accesskey;"
-                          tbattr="tabbrowser-multiple"
-                          oncommand="var tabbrowser = this.parentNode.parentNode.parentNode.parentNode;
-                                     tabbrowser.reloadAllTabs();"/>
+                                     tabbrowser.removeTab(tabbrowser.mContextTab);"/>
           </xul:menupopup>
 
           <xul:tabs class="tabbrowser-tabs" flex="1"
