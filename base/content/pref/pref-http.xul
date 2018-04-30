@@ -24,6 +24,9 @@
       <preference id="network.http.proxy.pipelining"
                   name="network.http.proxy.pipelining"
                   type="bool"/>
+      <preference id="general.useragent.compatMode.gecko"
+                  name="general.useragent.compatMode.gecko"
+                  type="bool"/>
       <preference id="general.useragent.compatMode.firefox"
                   name="general.useragent.compatMode.firefox"
                   type="bool"/>
@@ -86,15 +89,14 @@
 
     <groupbox>
       <caption label="&prefUseragent.label;"/>
+      <checkbox id="uaGeckoCompat"
+                label="&prefGeckoCompat.label;"
+                accesskey="&prefGeckoCompat.accesskey;"
+                preference="general.useragent.compatMode.gecko"/>
       <checkbox id="uaFirefoxCompat"
                 label="&prefFirefoxCompat.label;"
                 accesskey="&prefFirefoxCompat.accesskey;"
                 preference="general.useragent.compatMode.firefox"/>
-      <checkbox id="uaLightningShow"
-                hidden="true"
-                label="&prefLightningShow.label;"
-                accesskey="&prefLightningShow.accesskey;"
-                oncommand="OnLightningChanged(this.checked);"/>
     </groupbox>
 
     <description>&prefCompatWarning;</description>
