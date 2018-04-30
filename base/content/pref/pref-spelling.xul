@@ -62,19 +62,5 @@
         </menulist>
       </hbox>
     </groupbox>
-
-    <groupbox id="mailSpelling" align="start">
-      <caption label="&spellForMailAndNews.label;"/>
-      <vbox align="start">
-        <checkbox id="spellCheckBeforeSend"
-                  label="&checkSpellingBeforeSend.label;"
-                  accesskey="&checkSpellingBeforeSend.accesskey;"
-                  preference="mail.SpellCheckBeforeSend"/>
-        <checkbox id="inlineSpellCheck"
-                  label="&spellCheckInline.label;"
-                  accesskey="&spellCheckInline.accesskey;"
-                  preference="mail.spellcheck.inline"/>
-      </vbox>
-     </groupbox>
   </prefpane>
 </overlay>
