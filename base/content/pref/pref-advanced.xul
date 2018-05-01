@@ -60,35 +60,5 @@
                 accesskey="&submitCrashes.accesskey;"
                 oncommand="updateSubmitCrashes(this.checked);"/>
     </groupbox>
-
-    <groupbox id="devTools">
-      <caption id="devToolsCaption" label="&devTools.caption;"/>
-      <checkbox id="allowDebugger"
-                label="&allowDebugger.label;"
-                accesskey="&allowDebugger.accesskey;"
-                preference="devtools.debugger.remote-enabled"/>
-      <checkbox id="allowRemoteConnections"
-                label="&allowRemoteConnections.label;"
-                accesskey="&allowRemoteConnections.accesskey;"
-                preference="devtools.debugger.force-local"/>
-      <checkbox id="connectionPrompt"
-                label="&connectionPrompt.label;"
-                accesskey="&connectionPrompt.accesskey;"
-                preference="devtools.debugger.prompt-connection"/>
-
-      <hbox align="center">
-        <label id="remoteDebuggerPortBefore"
-               value="&remoteDebuggerPort.label;"
-               accesskey="&remoteDebuggerPort.accesskey;"
-               control="remoteDebuggerPort"/>
-        <textbox id="remoteDebuggerPort"
-                 type="number"
-                 min="0"
-                 max="65535"
-                 size="5"
-                 preference="devtools.debugger.remote-port"
-                 aria-labelledby="remoteDebuggerPortBefore remoteDebuggerPort"/>
-      </hbox>
-    </groupbox>
   </prefpane>
 </overlay>

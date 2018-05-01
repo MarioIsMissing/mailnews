@@ -38,7 +38,8 @@ if test "$OS_ARCH" = "WINNT" -o \
 fi
 
 # Include the DevTools client, not just the server (which is the default)
-MOZ_DEVTOOLS=1
+MOZ_DEVTOOLS_SERVER=
+MOZ_DEVTOOLS=
 
 MOZ_PLACES=1
 MOZ_SERVICES_SYNC=1

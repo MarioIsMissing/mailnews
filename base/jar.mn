@@ -47,8 +47,6 @@ comm.jar:
   content/navigator/safeBrowsingOverlay.xul                        (content/safeBrowsingOverlay.xul)
   content/navigator/tabbrowser.xml                                 (content/tabbrowser.xml)
   content/navigator/urlbarBindings.xml                             (content/urlbarBindings.xml)
-  content/navigator/webDeveloperOverlay.js                         (content/webDeveloperOverlay.js)
-  content/navigator/webDeveloperOverlay.xul                        (content/webDeveloperOverlay.xul)
   content/navigator/aboutSH.xhtml                                  (content/aboutSH.xhtml)
 
   content/communicator/aboutPrivateBrowsing.css                    (content/aboutPrivateBrowsing.css)
