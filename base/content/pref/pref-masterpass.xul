@@ -7,7 +7,7 @@
 
 <!DOCTYPE overlay [
   <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
-  <!ENTITY % prefPass SYSTEM "chrome://pippki/locale/pref-masterpass.dtd">
+  <!ENTITY % prefPass SYSTEM "chrome://communicator/locale/pref/pref-masterpass.dtd">
   %brandDTD;
   %prefPass;
 ]>
@@ -15,10 +15,16 @@
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <prefpane id="masterpass_pane"
             label="&pref.masterpass.title;"
-            script="chrome://pippki/content/pref-masterpass.js">
+            script="chrome://communicator/content/pref/pref-masterpass.js">
 
     <preferences id="masterpass_preferences">
-      <preference id="security.disable_button.changePassword"
+      <preference id="signon.rememberSignons"
+                  name="signon.rememberSignons"
+                  type="bool"/>
+      <preference id="pref.advanced.password.disable_button.view_stored_password"
+                  name="pref.advanced.password.disable_button.view_stored_password"
+                  type="bool"/>
+    <preference id="security.disable_button.changePassword"
                   name="security.disable_button.changePassword"
                   type="bool"/>
       <preference id="security.ask_for_password"
@@ -32,6 +38,24 @@
                   name="security.disable_button.resetPassword"
                   type="bool"/>
     </preferences>
+
+    <groupbox>
+      <caption label="&signonHeader.caption;"/>
+      <description>&signonDescription.label;</description>
+      <hbox>
+        <checkbox id="signonRememberSignons"
+                  label="&signonEnabled.label;"
+                  accesskey="&signonEnabled.accesskey;"
+                  preference="signon.rememberSignons"/>
+      </hbox>
+      <hbox pack="end">
+        <button id="viewStoredPassword"
+                label="&viewSignons.label;"
+                accesskey="&viewSignons.accesskey;"
+                oncommand="toPasswordManager();"
+                preference="pref.advanced.password.disable_button.view_stored_password"/>
+      </hbox>
+    </groupbox>
 
     <!-- Change Password -->
     <groupbox>
