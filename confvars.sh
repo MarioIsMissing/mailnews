@@ -37,7 +37,8 @@ if test "$OS_ARCH" = "WINNT" -o \
   MOZ_BUNDLED_FONTS=1
 fi
 
-# Include the DevTools client, not just the server (which is the default)
+# Disable Jetpack and Devtools
+MOZ_JETPACK=
 MOZ_DEVTOOLS_SERVER=
 MOZ_DEVTOOLS=
 
