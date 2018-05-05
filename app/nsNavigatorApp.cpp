@@ -31,9 +31,6 @@
 #endif
 #define XRE_WANT_ENVIRON
 #define strcasecmp _stricmp
-#ifdef MOZ_SANDBOX
-#include "mozilla/sandboxing/SandboxInitialization.h"
-#endif
 #endif
 #include "BinaryPath.h"
 
@@ -41,11 +38,7 @@
 
 #include "mozilla/WindowsDllBlocklist.h"
 
-#if !defined(MOZ_WIDGET_COCOA) && !defined(MOZ_WIDGET_ANDROID) \
-  && !(defined(XP_LINUX) && defined(MOZ_SANDBOX))
-#define MOZ_BROWSER_CAN_BE_CONTENTPROC
 #include "../../ipc/contentproc/plugin-container.cpp"
-#endif
 
 using namespace mozilla;
 
@@ -216,18 +209,6 @@ static int do_main(int argc, char* argv[], char* envp[], nsIFile *xreDirectory)
   // xreDirectory already has a refcount from NS_NewLocalFile
   appData.xreDirectory = xreDirectory;
 
-#if defined(XP_WIN) && defined(MOZ_SANDBOX)
-  sandbox::BrokerServices* brokerServices =
-    sandboxing::GetInitializedBrokerServices();
-#if defined(MOZ_CONTENT_SANDBOX)
-  if (!brokerServices) {
-    Output("Couldn't initialize the broker services.\n");
-    return 255;
-  }
-#endif
-  appData.sandboxBrokerServices = brokerServices;
-#endif
-
   return XRE_main(argc, argv, &appData, mainFlags);
 }
 
@@ -319,44 +300,12 @@ int main(int argc, char* argv[], char* envp[])
 #endif
 #endif
 
-#ifdef MOZ_BROWSER_CAN_BE_CONTENTPROC
-  // We are launching as a content process, delegate to the appropriate
-  // main
-  if (argc > 1 && IsArg(argv[1], "contentproc")) {
-#if defined(XP_WIN) && defined(MOZ_SANDBOX)
-    // We need to initialize the sandbox TargetServices before InitXPCOMGlue
-    // because we might need the sandbox broker to give access to some files.
-    if (IsSandboxedProcess() && !sandboxing::GetInitializedTargetServices()) {
-      Output("Failed to initialize the sandbox target services.");
-      return 255;
-    }
-#endif
-
-    nsresult rv = InitXPCOMGlue(argv[0], nullptr);
-    if (NS_FAILED(rv)) {
-      return 255;
-    }
-
-    int result = content_process_main(argc, argv);
-
-    // InitXPCOMGlue calls NS_LogInit, so we need to balance it here.
-    NS_LogTerm();
-
-    return result;
-  }
-#endif
-
-
   nsIFile *xreDirectory;
 
   nsresult rv = InitXPCOMGlue(argv[0], &xreDirectory);
   if (NS_FAILED(rv)) {
     return 255;
   }
-
-#ifdef MOZ_BROWSER_CAN_BE_CONTENTPROC
-  XRE_EnableSameExecutableForContentProc();
-#endif
 
   int result = do_main(argc, argv, envp, xreDirectory);
 
