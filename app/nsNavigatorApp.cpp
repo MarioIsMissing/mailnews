@@ -187,13 +187,7 @@ static int do_main(int argc, char* argv[], char* envp[], nsIFile *xreDirectory)
       argv[i] = argv[i + 1];
     }
 
-    XREShellData shellData;
-#if defined(XP_WIN) && defined(MOZ_SANDBOX)
-    shellData.sandboxBrokerServices =
-      sandboxing::GetInitializedBrokerServices();
-#endif
-
-    return XRE_XPCShellMain(--argc, argv, envp, &shellData);
+    return XRE_XPCShellMain(--argc, argv, envp);
   }
 
   if (appini) {
