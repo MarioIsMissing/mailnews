@@ -5,6 +5,7 @@ BINOC_PYTHON=`which python2.7 2>/dev/null`
 BINOC_GIT=`which git 2>/dev/null`
 BINOC_CURL=`which curl 2>/dev/null`
 BINOC_PLATFORM=./platform
+BINOC_CALENDAR=./calendar
 BINOC_MACH=$BINOC_PLATFORM/mach
 BINOC_CONFIG_GUESS=`./platform/build/autoconf/config.guess`
 
@@ -40,6 +41,7 @@ export BINOC_CONFIG_GUESS=$BINOC_CONFIG_GUESS
 if [ -n "$BINOC_GIT" ]; then
   BINOC_COMM_BRANCH=`"${BINOC_GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]` 
   BINOC_PLATFORM_BRANCH=`cd ${BINOC_PLATFORM} && "${BINOC_GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
+  BINOC_CALENDAR_BRANCH=`cd ${BINOC_CALENDAR} && "${BINOC_GIT}" symbolic-ref --short HEAD 2>/dev/null | tr [:upper:] [:lower:]`
 
   # if we don't have a comm branch then don't even bother
   if [ -n "$BINOC_COMM_BRANCH" ]; then
@@ -91,21 +93,25 @@ elif [ "$1" == "checkout" ] && [ -n "$BINOC_GIT" ]; then
   "$BINOC_GIT" pull
 
   if [ ! -f $BINOC_PLATFORM/CLOBBER ]; then
-    "$BINOC_GIT" submodule init platform
+    "$BINOC_GIT" submodule init platform calendar
   fi
 
   if [ "$2" == "absolute-trunk" ]; then
     printf "\nUnified XUL Platform:\n"
-
     cd $BINOC_PLATFORM
-
     if [ "$BINOC_PLATFORM_BRANCH" != "master" ]; then
       "$BINOC_GIT" checkout master
     fi
+    "$BINOC_GIT" pull
 
+    cd ../$BINOC_CALENDAR
+    printf "\nCalendar:\n"
+    if [ "$BINOC_CALENDAR_BRANCH" != "trunk" ]; then
+      "$BINOC_GIT" checkout TRUNK
+    fi
     "$BINOC_GIT" pull
   else
-    "$BINOC_GIT" submodule update
+    "$BINOC_GIT" submodule update -f
   fi
 elif [ "$1" == "reset" ] && [ -n "$BINOC_GIT" ]; then
   if [ "$2" == "comm" ]; then
@@ -115,6 +121,10 @@ elif [ "$1" == "reset" ] && [ -n "$BINOC_GIT" ]; then
     printf "Unified XUL Platform:\n"
     cd $BINOC_PLATFORM
     "$BINOC_GIT" reset --hard
+  elif [ "$2" == "calendar" ]; then
+    printf "Calendar:\n"
+    cd $BINOC_CALENDAR
+    "$BINOC_GIT" reset --hard
   else
     printf "Reset what?\n"
   fi
@@ -122,6 +132,9 @@ elif [ "$1" == "webpatch" ] && [ -n "$BINOC_GIT" ] && [ -n "$BINOC_CURL" ]; then
   if [ "$2" == "platform" ]; then
     printf "Unified XUL Platform:\n"
     cd $BINOC_PLATFORM
+  elif [ "$2" == "calendar" ]; then
+    printf "Calendar:\n"
+    cd $BINOC_CALENDAR
   elif [ "$2" == "comm" ]; then
     printf "binoc-central:\n"
   else
@@ -133,7 +146,7 @@ elif [ "$1" == "webpatch" ] && [ -n "$BINOC_GIT" ] && [ -n "$BINOC_CURL" ]; then
     printf "Patch with what?"
     exit 1
   else
-    if [[ "$3" == *"github.com"* ]]; then
+    if [[ "$3" == *"github.com"* ]] || [[ "$3" == *"repo.palemoon.org"* ]]; then
       _patch=$3.patch
     else
       _patch=$3
