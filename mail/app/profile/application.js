@@ -143,9 +143,6 @@ pref("app.support.baseURL", "about:blank");
 // Show error messages in error console.
 pref("javascript.options.showInConsole", true);
 
-// Enable ION Inlining because js perf loss vs web induced crash of inline ES Modules risk is much MUCH lower
-pref("javascript.options.ion.inlining", true);
-
 // Disable WASM and its baseline jit (platform default is true)
 pref("javascript.options.wasm",             false);
 pref("javascript.options.wasm_baselinejit", false);
