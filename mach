@@ -7,7 +7,7 @@ BINOC_CURL=`which curl 2>/dev/null`
 BINOC_PLATFORM=./platform
 BINOC_CALENDAR=./calendar
 BINOC_MACH=$BINOC_PLATFORM/mach
-BINOC_CONFIG_GUESS=`./platform/build/autoconf/config.guess`
+BINOC_CONFIG_GUESS=`./platform/build/autoconf/config.guess 2>/dev/null`
 
 # =============================================================================
 
@@ -86,8 +86,21 @@ elif [ "$1" == "version" ]; then
 elif [ "$1" == "checkout" ] && [ -n "$BINOC_GIT" ]; then
   printf "binoc-central:\n"
 
-  if [ "$2" == "absolute-trunk" ] && [ "$COMM_BRANCH" != "trunk" ]; then
-    "$BINOC_GIT" checkout TRUNK
+  if [ "$2" == "absolute-trunk" ]; then
+      "$BINOC_GIT" checkout TRUNK
+  elif [ "$2" == "release" ]; then
+      "$BINOC_GIT" checkout RELEASE
+  elif [ -n "$2" ]; then
+    printf "Please use git directly for arbitary branch switching.\n"
+    exit 1
+  else
+    _commBranch=`git branch --show-current`
+    if [ -n "$_commBranch" ]; then 
+      printf "On branch $_commBranch\n"
+    else
+      printf "Not currently on a branch. Please use git directly or 'mach checkout (release|absolute-trunk)'.\n"
+      exit 1
+    fi
   fi
 
   "$BINOC_GIT" pull
