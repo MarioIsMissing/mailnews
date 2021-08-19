@@ -94,7 +94,8 @@ elif [ "$1" == "checkout" ] && [ -n "$BINOC_GIT" ]; then
     printf "Please use git directly for arbitrary branch switching.\n"
     exit 1
   else
-    if [ "`git rev-parse --abbrev-ref HEAD`" != "HEAD"]; then 
+    _commBranch=`git rev-parse --abbrev-ref HEAD`
+    if [ "$_commBranch" != "HEAD" ]; then 
       printf "On branch $_commBranch\n"
     else
       printf "Not currently on a branch. Please use git directly or 'mach checkout (release|absolute-trunk)'.\n"
