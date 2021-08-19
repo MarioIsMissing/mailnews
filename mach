@@ -91,11 +91,10 @@ elif [ "$1" == "checkout" ] && [ -n "$BINOC_GIT" ]; then
   elif [ "$2" == "release" ]; then
       "$BINOC_GIT" checkout RELEASE
   elif [ -n "$2" ]; then
-    printf "Please use git directly for arbitary branch switching.\n"
+    printf "Please use git directly for arbitrary branch switching.\n"
     exit 1
   else
-    _commBranch=`git branch --show-current`
-    if [ -n "$_commBranch" ]; then 
+    if [ "`git rev-parse --abbrev-ref HEAD`" != "HEAD"]; then 
       printf "On branch $_commBranch\n"
     else
       printf "Not currently on a branch. Please use git directly or 'mach checkout (release|absolute-trunk)'.\n"
